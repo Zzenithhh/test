@@ -33,16 +33,35 @@ Aplikácia je rozdelená na tri hlavné časti:
 
 ### 2.1 Diagram architektúry
 
-```mermaid
 flowchart LR
-    Client[JavaFX klient\n(FXML obrazovky)] 
-        --> |HTTP/JSON| API[Spring Boot backend\nREST API]
+    subgraph Client["JavaFX klient"]
+        UI["GUI (FXML obrazovky)"]
+        Logic["Client logika<br/>+ správa stavov"]
+        APIClient["HTTP klient<br/>+ WebSocket klient"]
+    end
 
-    Client <--> |WebSocket| WS[WebSocket notifikácie]
+    subgraph Backend["Spring Boot Backend"]
+        Auth["Autentifikácia<br/>JWT + OAuth2"]
+        Services["Business logika<br/>(Service vrstva)"]
+        Controllers["REST API<br/>Controller vrstva"]
+        WS["WebSocket Notifikácie"]
+        FileStore["Súborové úložisko<br/>(materiály, odovzdania)"]
+    end
 
-    API --> DB[(Relačná databáza\nPostgreSQL)]
-    API --> FS[(Súborové úložisko\nmateriály a prílohy)]
-````
+    subgraph Database["Databáza"]
+        DB[(PostgreSQL<br/>relačný model)]
+    end
+
+    UI --> Logic
+    Logic --> APIClient
+
+    APIClient -->|"HTTP/JSON"| Controllers
+    APIClient <-->|"WebSocket"| WS
+
+    Controllers --> Services
+    Services --> DB
+    Services --> FileStore
+
 
 ### 2.2 Vysvetlenie vrstiev
 

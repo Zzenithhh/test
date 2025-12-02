@@ -54,7 +54,7 @@ flowchart TB
     "]
 
     DB["
-    <b>PostgreSQL databáza</b><br/>
+    <b>SQLite databáza</b><br/>
     • Relačný model<br/>
     • Vzťahy skupiny/úlohy/odovzdania
     "]

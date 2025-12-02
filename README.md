@@ -554,5 +554,3 @@ Pri vývoji som využíval AI nástroje (napr. ChatGPT) najmä nasledovne:
   * efektívnejšie pracovať so Spring Boot (bezpečnosť, JWT, integrácia OAuth2),
   * základy návrhu desktopového GUI v JavaFX,
   * ako si navrhnúť vlastný ER model a premietnuť ho do JPA entít.
-
-````

@@ -35,6 +35,7 @@ Aplikácia je rozdelená na tri hlavné časti:
 
 (Napr. mermaid diagram, ktorý vie GitHub zobraziť.)
 
+
 ```mermaid
 flowchart LR
     Client[JavaFX klient\n(FXML obrazovky)] 
@@ -44,7 +45,8 @@ flowchart LR
 
     API --> DB[(Relačná databáza\nPostgreSQL)]
     API --> FS[(Súborové úložisko\nmateriály a prílohy)]
+```
+---
 
-
-![ER diagram](./docs/er-diagram.png)
-
+## 3. Databázový model (ER diagram)
+![ER diagram](db.png)

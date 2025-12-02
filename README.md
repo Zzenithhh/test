@@ -33,34 +33,43 @@ Aplikácia je rozdelená na tri hlavné časti:
 
 ### 2.1 Diagram architektúry
 
-flowchart LR
-    subgraph Client["JavaFX klient"]
-        UI["GUI (FXML obrazovky)"]
-        Logic["Client logika<br/>+ správa stavov"]
-        APIClient["HTTP klient<br/>+ WebSocket klient"]
-    end
+flowchart TB
+    Client["
+    <b>Client</b><br/>
+    JavaFX aplikácia<br/>
+    • FXML UI<br/>
+    • Stavová logika<br/>
+    • JWT autentifikácia<br/>
+    • WebSocket listener
+    "]
 
-    subgraph Backend["Spring Boot Backend"]
-        Auth["Autentifikácia<br/>JWT + OAuth2"]
-        Services["Business logika<br/>(Service vrstva)"]
-        Controllers["REST API<br/>Controller vrstva"]
-        WS["WebSocket Notifikácie"]
-        FileStore["Súborové úložisko<br/>(materiály, odovzdania)"]
-    end
+    API["
+    <b>Backend (Spring Boot)</b><br/>
+    • REST API (Controller vrstva)<br/>
+    • Business logika (Service)<br/>
+    • MapStruct + DTO<br/>
+    • JWT + OAuth2 Security<br/>
+    • WebSocket server<br/>
+    • Správa súborov
+    "]
 
-    subgraph Database["Databáza"]
-        DB[(PostgreSQL<br/>relačný model)]
-    end
+    DB["
+    <b>PostgreSQL databáza</b><br/>
+    • Relačný model<br/>
+    • Vzťahy skupiny/úlohy/odovzdania
+    "]
 
-    UI --> Logic
-    Logic --> APIClient
+    FS["
+    <b>Súborové úložisko</b><br/>
+    • Materiály úloh<br/>
+    • Prílohy odovzdaní
+    "]
 
-    APIClient -->|"HTTP/JSON"| Controllers
-    APIClient <-->|"WebSocket"| WS
+    Client -->|"HTTP/JSON"| API
+    Client <-->|"WebSocket notifikácie"| API
+    API --> DB
+    API --> FS
 
-    Controllers --> Services
-    Services --> DB
-    Services --> FileStore
 
 
 ### 2.2 Vysvetlenie vrstiev

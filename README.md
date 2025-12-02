@@ -33,19 +33,15 @@ Aplikácia je rozdelená na tri hlavné časti:
 
 ### 2.1 Diagram architektúry
 
-(Napr. mermaid diagram, ktorý vie GitHub zobraziť.)
-
-
-```mermaid
 flowchart LR
-    Client[JavaFX klient\n(FXML obrazovky)] 
-        --> |HTTP/JSON| API[Spring Boot backend\nREST API]
+Client["JavaFX klient<br/>FXML obrazovky"]-->|"HTTP/JSON"| API["Spring Boot backend<br/>REST API"]
 
-    Client <--> |WebSocket| WS[WebSocket notifikácie]
+    Client <-->|"WebSocket"| WS["WebSocket notifikácie"]
 
-    API --> DB[(Relačná databáza\nPostgreSQL)]
-    API --> FS[(Súborové úložisko\nmateriály a prílohy)]
-```
+    API --> DB["Relačná databáza<br/>PostgreSQL"]
+    API --> FS["Súborové úložisko<br/>materiály a prílohy"]
+
+    
 ---
 
 ## 3. Databázový model (ER diagram)

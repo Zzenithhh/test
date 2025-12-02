@@ -351,7 +351,7 @@ Každý používateľ má súkromný kanál, na ktorý server posiela správy:
 
 ---
 
-# 🛠 Činnosť NotificationService
+# Činnosť NotificationService
 
 Služba automaticky vyhľadá všetkých používateľov v skupine a odošle im notifikáciu.
 
@@ -411,3 +411,20 @@ Odosiela pozvánku do skupiny jednému používateľovi.
   "groupId": 4
 }
 ```
+
+# Ukážky používateľského Rozhrania
+
+![Login okno](docs/ui-login.png)
+*Prihlasovacie okno – používateľ sa môže prihlásiť cez email/heslo alebo Google OAuth2.*
+
+![Register okno](docs/ui-register.png)
+*Registračne okno – používateľ sa môže registrovať cez email/heslo alebo Google OAuth2.*
+
+![Zoznam skupín](docs/ui-groups.png)
+*Prehľad skupín, do ktorých používateľ patrí. Možnosť vytvoriť novú skupinu.*
+
+![Zoznam úloh](docs/ui-group-tasks.png)
+*Detail vybranej skupiny s prehľadom úloh, členov a základnými štatistikami.*
+
+![Detail úlohy a odovzdanie riešenia](docs/ui-task-submission.png)
+*Detail úlohy, zoznam materiálov a formulár na odovzdanie riešenia.*

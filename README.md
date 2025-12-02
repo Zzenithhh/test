@@ -32,7 +32,7 @@ Aplikácia je rozdelená na tri hlavné časti:
 - **Databáza** – relačná databáza (SQLite)
 
 ### 2.1 Diagram architektúry
-
+```mermaid
 flowchart TB
     Client["
     <b>Client</b><br/>

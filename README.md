@@ -32,11 +32,11 @@ Aplikácia je rozdelená na tri hlavné časti:
 - **Databáza** – relačná databáza (SQLite)
 
 ### 2.1 Diagram architektúry
-```mermaid
+
 flowchart TB
+
     Client["
-    <b>Client</b><br/>
-    JavaFX aplikácia<br/>
+    <b>Client (JavaFX)</b><br/>
     • FXML UI<br/>
     • Stavová logika<br/>
     • JWT autentifikácia<br/>
@@ -69,6 +69,7 @@ flowchart TB
     Client <-->|"WebSocket notifikácie"| API
     API --> DB
     API --> FS
+
 
 
 
